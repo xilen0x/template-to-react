@@ -1,15 +1,15 @@
-import React from 'react'
+import React, {state} from 'react'
 import WelcomeCard from './welcomecard.jsx'
 
 const Welcome = props => {
     return (
         <>
-            <h1 className="my-4">Welcome to Modern Business</h1>
+            <h1 className="my-4">{props.info.title}</h1>
 
-            <div className="row">
-                <WelcomeCard />
-                <WelcomeCard />
-                <WelcomeCard />
+            <div className="row">{
+                props.info.cardInfo.length > 0 &&
+                props.info.cardInfo.map((item,i)=><WelcomeCard key={i} datos={item}/>)
+            }
             </div>
         </>
     )

@@ -12,32 +12,56 @@ const Home = props => {
     const [state, setState] = useState({
         gallery: [
             {
-                id:1,
+                id: 1,
                 image: `https://picsum.photos/200/300`,
                 title: `First Slide`,
                 description: `This is the description for the first slide...`
             },
             {
-                id:2,
+                id: 2,
                 image: `https://picsum.photos/200/300`,
                 title: `Second Slide`,
                 description: `This is the description for the first slide...`
             },
             {
-                id:3,
+                id: 3,
                 image: `https://picsum.photos/200/300`,
                 title: `Third Slide`,
                 description: `This is the description for the first slide...`
             }
+        ],
+        welcomeInfo: {
+            title: 'Welcome to Modern Business',
+            cardInfo: [{
+                id: 1,
+                title: 'Card Title One',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.',
+                button: {
+                    label: 'Learn More',
+                    url: '/#'
+                }
+                
+            },
+            {
+                id: 2,
+                title: 'Card Title One',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.',
+                button: {
+                    label: 'Learn More',
+                    url: '/#'
+                }
+                
+            }
         ]
+        }
     })
 
     return (
         <>
             <Navbar />
-            <Header galleryData={state.gallery}/>
+            <Header galleryData={state.gallery} />
             <div className="container">
-                <Welcome />
+                <Welcome info={state.welcomeInfo}/>
                 <h2>Portfolio Heading</h2>
                 <Portfolio />
                 <ModernBusiness />
