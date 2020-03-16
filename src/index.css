@@ -1,6 +1,7 @@
 body {
   padding-top: 56px;
-  background-color: blue;
+  background-color: blue !important;
+  color: cadetblue !important;
 }
 .carousel-item {
   height: 65vh;
