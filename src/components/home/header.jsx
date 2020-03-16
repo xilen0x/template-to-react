@@ -5,56 +5,42 @@ const Header = props => {
         <header>
 
             <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-
                 <ol className="carousel-indicators">
+                    {
 
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+                        props.galleryData.map((elem, i) => {
+                            return (
+                                <li key={i} data-target="#carouselExampleIndicators" data-slide-to={i} className={(i === 0 ? "active" : "")}></li>
 
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            )
+                        })
+
+                    }
 
                 </ol>
 
                 <div className="carousel-inner" role="listbox">
+                {
+                    props.galleryData.map((elem, i) => {
+                        return (
 
-                    <div className="carousel-item active" style={{ "backgroundImage": "url('http://placehold.it/1900x1080')" }}>
+                                <div key={i} className={"carousel-item " + (i === 0 ? "active": "")} style={{ "backgroundImage": "url('"+elem.image+"')" }}>
 
-                        <div className="carousel-caption d-none d-md-block">
+                                    <div className="carousel-caption d-none d-md-block">
 
-                            <h3>First Slide</h3>
+                                    <h3>{elem.title}</h3>
 
-                            <p>This is a description for the first slide.</p>
+                                    <p>{elem.description}</p>
 
-                        </div>
+                                    </div>
 
-                    </div>
+                                </div>
 
-                    <div className="carousel-item" style={{ "backgroundImage": "url('http://placehold.it/1900x1080')" }}>
-
-                        <div className="carousel-caption d-none d-md-block">
-
-                            <h3>Second Slide</h3>
-
-                            <p>This is a description for the second slide.</p>
-
-                        </div>
-
-                    </div>
-
-                    <div className="carousel-item" style={{ "backgroundImage": "url('http://placehold.it/1900x1080')" }}>
-
-                        <div className="carousel-caption d-none d-md-block">
-
-                            <h3>Third Slide</h3>
-
-                            <p>This is a description for the third slide.</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                        )
+                    })
+                }
+                            </div>
 
                 <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 
